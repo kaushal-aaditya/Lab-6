@@ -5,6 +5,15 @@ def encode(password):  # encode function
         newpassword += str(int(j[i])+3)  # each entry in list will be increased by 3 and then converted to string and appended to newpassword
     return newpassword
 
+
+def decode(user_password):  # decodes function
+    user_password = [*user_password]
+    decoded_password = ""  # stores the decoded password
+    for a in range(len(user_password)):
+        decoded_password += str(int(user_password[a]) - 3)
+    return decoded_password
+
+
 x = 0  # variable for while loop
 
 def main():
@@ -19,7 +28,8 @@ def main():
             enco_pass = encode(base_pass)  # encoded pasword
             print("Your password has been encoded and stored!")
         elif menu_sel == 2:
-            print("The encoded password is " + enco_pass + ", and the original password is unknown.")
+            decode_pass = decode(enco_pass)
+            print("The encoded password is " + enco_pass + ", and the original password is " + decode_pass + ".")
         elif menu_sel == 3:
             break
 
